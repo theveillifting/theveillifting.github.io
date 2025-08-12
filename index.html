@@ -10,7 +10,6 @@
     :root {
       --bg-gradient: linear-gradient(180deg, #5c3d7a, #2e1b47);
       --text: #f9f6ff;
-      --muted: #d5c6e0;
       --accent: #b28dff;
       --card: rgba(255, 255, 255, 0.05);
     }
@@ -22,6 +21,7 @@
       background: var(--bg-gradient);
       color: var(--text);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -34,6 +34,30 @@
       font-size: 3rem;
       margin: 0;
       color: var(--accent);
+    }
+
+    nav {
+      text-align: center;
+      padding: 0.5rem 0;
+      background-color: rgba(46, 27, 71, 0.6);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: color 0.2s ease-in-out;
+    }
+
+    nav a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2px;
     }
 
     main {
@@ -62,11 +86,6 @@
 
     a {
       color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
 
     img.bird-image {
@@ -76,12 +95,35 @@
       margin: 10px auto 20px;
       border-radius: 8px;
     }
+
+    .blog-post {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* 📱 Mobile Styles */
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>theveillifting</h1>
   </header>
+
+  <nav>
+    <a href="#bio">Bio</a>
+    <a href="#book">Book</a>
+    <a href="#language-of-the-birds">Language of the Birds</a>
+    <a href="#blog">Blog</a>
+    <a href="#journal">Journal</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <main>
     <section id="bio">
@@ -108,9 +150,15 @@
 
     <section id="blog">
       <h2>Blog</h2>
-      <p>
-        Welcome to my thoughts, musings, and writings. Here I share poems, spiritual reflections, and creative insights.
-      </p>
+      <p>Welcome to my thoughts, musings, and writings.</p>
+
+      <!-- ⭐⭐ BLOG POSTS START HERE ⭐⭐ -->
+      <div class="blog-post">
+        <h3>First Blog Post</h3>
+        <p><em>August 12, 2025</em></p>
+        <p>This is where your first blog post goes. To add a new post, copy this whole &lt;div class="blog-post"&gt;...&lt;/div&gt; block and paste it below.</p>
+      </div>
+      <!-- ⭐⭐ ADD NEW POSTS ABOVE THIS LINE ⭐⭐ -->
     </section>
 
     <section id="journal">
@@ -126,5 +174,28 @@
       <p>Instagram: <a href="https://instagram.com/theveillifting" target="_blank">@theveillifting</a></p>
     </section>
   </main>
+
+  <script>
+    // Highlight nav link on scroll
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 80;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
