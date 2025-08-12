@@ -168,4 +168,26 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:ruby
+      <p>Email: <a href="mailto:rubyeyes22@hotmail.com">rubyeyes22@hotmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/theveillifting" target="_blank" rel="noopener">@theveillifting</a></p>
+    </section>
+  </main>
+
+  <script>
+    // Highlight nav link on scroll
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 90;
+        if (scrollY >= sectionTop) current = section.id;
+      });
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+      });
+    });
+  </script>
+</body>
+</html>
