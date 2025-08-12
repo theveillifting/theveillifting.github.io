@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kathy – Writing, Spirituality & Poetry</title>
+  <title>theveillifting – Writing, Spirituality & Poetry</title>
   <meta name="description" content="Kathy's personal site: bio, book-in-progress, blog, journal, and contact." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg-gradient: linear-gradient(180deg, #5c3d7a, #2e1b47);
       --text: #f9f6ff;
       --muted: #d5c6e0;
       --accent: #b28dff;
-      --outline: #d5bfff;
       --card: rgba(255, 255, 255, 0.05);
     }
 
@@ -31,9 +30,10 @@
     }
 
     header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
       margin: 0;
+      color: var(--accent);
     }
 
     section {
@@ -42,7 +42,6 @@
       padding: 2rem;
       background: var(--card);
       border-radius: 10px;
-      text-align: center;
     }
 
     h2 {
@@ -50,8 +49,17 @@
       color: var(--accent);
     }
 
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     img.bird-image {
-      width: 150px;  /* Instagram-style small size */
+      width: 150px;
       height: auto;
       display: block;
       margin: 10px auto;
@@ -61,19 +69,54 @@
 </head>
 <body>
   <header>
-    <h1>Kathy – Writing, Spirituality & Poetry</h1>
+    <h1>theveillifting</h1>
   </header>
 
-  <section>
-    <!-- Bird image above the "Language of the Birds" section -->
-    <img src="49FC8180_resized.PNG" alt="Birds" class="bird-image" />
+  <section id="bio">
+    <h2>About Me</h2>
+    <p>
+      I am a writer, poet, and spiritual explorer. My work blends mysticism, symbolism, and personal experience to weave
+      together words that invite readers into other realms. Through my poetry, prose, and reflections, I seek to lift the
+      veil between the seen and unseen.
+    </p>
+  </section>
 
+  <section id="book">
+    <h2>About My Book</h2>
+    <p>
+      My current book-in-progress is a fusion of spiritual allegory, lyrical prose, and symbolic storytelling. It draws
+      upon ancient wisdom traditions, personal visions, and the language of the soul.
+    </p>
+  </section>
+
+  <section id="language-of-the-birds">
+    <img src="49FC8180_resized.PNG" alt="Birds" class="bird-image" />
     <h2>Language of the Birds</h2>
     <p>
       The "Language of the Birds" is a mystical concept that refers to a perfect, divine, and often secret language
       understood by the enlightened. It appears in myths, alchemical writings, and poetry as a symbol of higher wisdom
       and hidden truths that can only be heard by those prepared to receive them.
     </p>
+  </section>
+
+  <section id="blog">
+    <h2>Blog</h2>
+    <p>
+      Welcome to my thoughts, musings, and writings. Here I share poems, spiritual reflections, and creative insights.
+    </p>
+  </section>
+
+  <section id="journal">
+    <h2>Journal</h2>
+    <p>
+      This is my space for personal notes, inspirations, and moments I want to remember.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:rubyeyes22@hotmail.com">rubyeyes22@hotmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/theveillifting" target="_blank">@theveillifting</a></p>
   </section>
 </body>
 </html>
