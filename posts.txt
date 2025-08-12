@@ -11,8 +11,11 @@ Stay tuned for more soon!
 TITLE: Second Blog Post
 DATE: August 13, 2025
 CONTENT:
-I wanted to share a short reflection today about following your intuition.  
-Sometimes the path forward is not clear, but if you take one step at a time,  
-you’ll eventually see the way open up.  
+My e-book is coming out soon! 
 
-Trust the process.  
+---
+TITLE: Third blog post
+DATE August 14, 2025
+CONTENT: 
+color stages of alchemy
+
