@@ -8,12 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --lavender:#dcd4e6;        /* main background */
-      --lavender-dark:#c7bdd8;   /* section background */
-      --text:#2b2340;            /* readable dark text */
-      --violet:#5c2b91;          /* deep purple for title & headings */
-      --gold:#d4b46a;            /* muted gold for nav underline */
-      --nav-bg: rgba(92, 43, 145, 0.2);
+      --lavender:#E6E6FA;           /* page background */
+      --text:#2b2340;               /* readable dark text */
+      --violet:#9400D3;             /* dark violet for title & headings */
+      --card-bg:#d8cde8;            /* richer lavender for sections */
+      --card-border: rgba(0,0,0,.08);
+      --nav-bg: rgba(148, 0, 211, 0.18); /* translucent violet */
     }
 
     html,body{
@@ -36,8 +36,8 @@
     }
     .banner-img{
       width:100%; height:auto; display:block; margin:0 auto;
-      border-top:1px solid var(--violet);
-      border-bottom:1px solid var(--violet);
+      border-top:1px solid var(--card-border);
+      border-bottom:1px solid var(--card-border);
     }
 
     /* Sticky blurred nav */
@@ -45,7 +45,7 @@
       position:sticky; top:0; z-index:1000;
       text-align:center; padding:10px 0;
       background:var(--nav-bg); backdrop-filter: blur(8px);
-      border-bottom:1px solid var(--violet);
+      border-bottom:1px solid var(--card-border);
     }
     nav a{
       color:var(--text); text-decoration:none; margin:0 12px; font-weight:700;
@@ -55,16 +55,18 @@
     nav a:hover{ color:var(--violet); }
     nav a.active{
       color:var(--violet);
-      border-color:var(--gold);
+      border-color:var(--violet);
     }
 
-    /* Section styling without white cards */
+    /* Content sections */
     main{ max-width:900px; margin:0 auto; padding:16px; }
     section{
-      background:var(--lavender-dark);
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
       border-radius:12px;
       padding:24px;
       margin:22px 0;
+      box-shadow:0 8px 24px rgba(0,0,0,.06);
     }
     h2{
       font-family:'Playfair Display',serif;
@@ -136,7 +138,6 @@
     <section id="blog">
       <h2>Blog</h2>
       <p>Welcome to my thoughts, musings, and writings.</p>
-
       <div class="blog-post">
         <h3>First Blog Post</h3>
         <p><em>August 12, 2025</em></p>
