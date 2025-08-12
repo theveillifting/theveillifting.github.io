@@ -8,10 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --lavender:#E6E6FA;           /* page background */
-      --text:#2b2340;               /* readable dark text */
-      --violet:#9400D3;             /* dark violet for title & headings */
-      --card-bg: rgba(255,255,255,.80);
+      --lavender:#E6E6FA;            /* page background */
+      --text:#2b2340;                /* readable dark text */
+      --violet:#9400D3;              /* dark violet for title & headings */
+      --gold:#f3d97c;                /* accent for nav highlight */
+      --card-bg: rgba(255,255,255,.88);
       --card-border: rgba(0,0,0,.08);
       --nav-bg: rgba(148, 0, 211, 0.18); /* translucent violet */
     }
@@ -21,11 +22,18 @@
       font:16px/1.6 'Open Sans',system-ui,sans-serif; scroll-behavior:smooth;
     }
 
+    /* Simple fade-in animation */
+    @keyframes fadeInUp {
+      from { opacity:0; transform: translateY(10px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
     /* Header title ABOVE the banner */
     header{
       text-align:center;
       padding:22px 12px 6px;
       background:var(--lavender);
+      animation: fadeInUp .6s ease both;
     }
     header h1{
       font-family:'Great Vibes',cursive;
@@ -38,6 +46,7 @@
       width:100%; height:auto; display:block; margin:0 auto;
       border-top:1px solid var(--card-border);
       border-bottom:1px solid var(--card-border);
+      animation: fadeInUp .7s ease .1s both;
     }
 
     /* Sticky blurred nav like your original setup */
@@ -49,13 +58,13 @@
     }
     nav a{
       color:var(--text); text-decoration:none; margin:0 12px; font-weight:700;
-      transition:color .2s ease-in-out, border-color .2s ease-in-out;
-      border-bottom:2px solid transparent; padding-bottom:2px;
+      padding-bottom:6px; border-bottom:2px solid transparent;
+      transition:color .2s ease, border-color .2s ease;
     }
     nav a:hover{ color:var(--violet); }
     nav a.active{
       color:var(--violet);
-      border-color:var(--violet);
+      border-color:var(--gold); /* clearer gold underline */
     }
 
     /* Content “cards” */
@@ -67,7 +76,14 @@
       padding:24px;
       margin:22px 0;
       box-shadow:0 8px 24px rgba(0,0,0,.06);
+      animation: fadeInUp .6s ease both;
     }
+    section:nth-of-type(1){ animation-delay:.05s; }
+    section:nth-of-type(2){ animation-delay:.10s; }
+    section:nth-of-type(3){ animation-delay:.15s; }
+    section:nth-of-type(4){ animation-delay:.20s; }
+    section:nth-of-type(5){ animation-delay:.25s; }
+
     h2{
       font-family:'Playfair Display',serif;
       color:var(--violet);
@@ -156,7 +172,7 @@
   </main>
 
   <script>
-    // Active menu highlight on scroll (same behavior as your earlier version)
+    // Active menu highlight on scroll
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav a");
 
