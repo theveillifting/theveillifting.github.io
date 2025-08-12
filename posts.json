@@ -1,14 +1,8 @@
-[{
-    "title": "On the color stages of alchemy",
-    "date": "August 13, 2025",
-    "content": "Nigredo, Albedo, Rubedo."
-  }
-  {
-    "title": "E-book",
-    "date": "August 12, 2025",
-    "content": "I´m soon going to release a chapter of my book as an e-book entitled "the Language of the Birds". 
-      This chapter serves in my main book as like a user´s manual of how to decode the book and its symbolism, 
-      but the chapter can also stand on its own as it explains the secret language of alchemy. This e-book will be priced at $2.00"
-  },
- 
-]
+<div class="blog-post">
+  <h3>E-book</h3>
+  <span class="date">August 12, 2025</span>
+  <p> I´m releasing one chapter of my upcoming book. The Chapter is called "the language of the birds",
+it serves as a reader´s manual on how to decode the language of the book and its symbolism. It also
+can stand alon because it is teaches my idea about what the secret magical language of alchemy is. This e-book will
+be sold for $2.00</p>
+</div>
