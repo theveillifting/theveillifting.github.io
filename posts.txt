@@ -1,0 +1,18 @@
+TITLE: First Blog Post
+DATE: August 12, 2025
+CONTENT:
+This is my very first blog post on my new site.  
+I’m so excited to begin sharing my writing, poetry, and thoughts here.  
+
+I’ll be writing about spirituality, creativity, symbolism, and anything that inspires me.  
+Stay tuned for more soon!
+
+---
+TITLE: Second Blog Post
+DATE: August 13, 2025
+CONTENT:
+I wanted to share a short reflection today about following your intuition.  
+Sometimes the path forward is not clear, but if you take one step at a time,  
+you’ll eventually see the way open up.  
+
+Trust the process.  
