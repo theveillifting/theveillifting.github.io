@@ -5,137 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>theveillifting – Writing, Spirituality & Poetry</title>
   <meta name="description" content="Personal site for writing, spirituality, poetry, and creative work." />
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg-gradient: linear-gradient(180deg, #5c3d7a, #2e1b47);
-      --text: #f9f6ff;
-      --gold: #f3d97c;              /* headings accent to match banner */
-      --card: rgba(255,255,255,0.06);
-      --card-border: rgba(255,255,255,0.18);
+    :root{
+      --bg: linear-gradient(180deg,#5c3d7a,#2e1b47);
+      --text:#f9f6ff;
+      --gold:#f3d97c;            /* accents that suit the banner */
+      --card: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.18);
+    }
+    html,body{
+      margin:0; padding:0; background:var(--bg); color:var(--text);
+      font:16px/1.6 'Open Sans',system-ui,sans-serif; scroll-behavior:smooth;
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Open Sans', sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text);
-      line-height: 1.6;
-      scroll-behavior: smooth;
+    /* === HEADER (original feel, fancy title) === */
+    header{
+      text-align:center; padding:32px 16px 16px;
+    }
+    header h1{
+      font-family:'Great Vibes',cursive;
+      font-size:clamp(40px,6vw,64px);
+      margin:0; color:var(--gold);
+      text-shadow:0 2px 12px rgba(0,0,0,.35);
     }
 
-    /* BANNER / HERO */
-    .hero {
-      position: relative;
-      min-height: 240px; /* banner height */
-      display: grid;
-      place-items: center;
-      text-align: center;
-      /* Use URL-encoded space for the filename */
+    /* === BANNER just below the title (doesn't cover art) === */
+    .banner{
+      width:100%;
+      height:220px;                 /* not too tall; keeps original layout vibe */
       background-image:
-        linear-gradient(to bottom, rgba(0,0,0,0.10), rgba(0,0,0,0.30)),
+        linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.25)),
         url('Untitled%20design-29.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-bottom: 1px solid var(--card-border);
-    }
-    .hero-inner {
-      width: 100%;
-      max-width: 1100px;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end; /* push title to the right so it doesn't cover art */
-    }
-    .site-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(36px, 6vw, 56px);
-      margin: 0;
-      color: var(--gold);
-      text-shadow: 0 2px 12px rgba(0,0,0,0.35);
-      background: rgba(0,0,0,0.35);
-      padding: 6px 14px;
-      border-radius: 12px;
+      background-size:cover;
+      background-position:center;
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
     }
 
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      text-align: center;
-      padding: 8px 0;
-      background: rgba(46,27,71,0.6);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--card-border);
+    /* === NAV (sticky + blur, like your original) === */
+    nav{
+      position:sticky; top:0; z-index:1000;
+      text-align:center; padding:8px 0;
+      background:rgba(46,27,71,.6); backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--border);
     }
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin: 0 12px;
-      font-weight: 600;
-      transition: color .2s ease-in-out;
+    nav a{
+      color:var(--text); text-decoration:none; margin:0 12px; font-weight:600;
+      transition:color .2s ease-in-out;
     }
-    nav a:hover { color: var(--gold); }
-    nav a.active {
-      color: var(--gold);
-      border-bottom: 2px solid var(--gold);
-      padding-bottom: 2px;
+    nav a:hover{ color:var(--gold); }
+    nav a.active{
+      color:var(--gold); border-bottom:2px solid var(--gold); padding-bottom:2px;
     }
 
-    /* LAYOUT */
-    main { max-width: 900px; margin: 0 auto; padding: 16px; }
-    section {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 24px;
-      margin: 22px 0;
+    /* === CONTENT LAYOUT (same card look as before) === */
+    main{ max-width:900px; margin:0 auto; padding:16px; }
+    section{
+      background:var(--card); border:1px solid var(--border);
+      border-radius:12px; padding:24px; margin:22px 0;
     }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--gold);
-      margin-top: 0;
+    h2{
+      font-family:'Playfair Display',serif;
+      color:var(--gold); font-size:1.8rem; margin:0 0 8px;
     }
-    a { color: var(--gold); }
+    a{ color:var(--gold); }
 
-    /* Images */
-    .bird-image {
-      width: 150px;        /* small, Instagram-ish */
-      height: auto;
-      display: block;
-      margin: 10px auto 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+    /* Birds image small & centered */
+    .bird-image{
+      width:150px; height:auto; display:block;
+      margin:10px auto 20px; border-radius:8px;
+      box-shadow:0 4px 18px rgba(0,0,0,.35);
     }
 
-    .blog-post {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 1rem;
-      margin-top: 1rem;
+    .blog-post{
+      border-top:1px solid rgba(255,255,255,.12);
+      padding-top:1rem; margin-top:1rem;
     }
 
-    /* Mobile nav stacking */
-    @media (max-width: 600px) {
-      nav a { display: block; margin: 6px 0; }
-      .hero-inner { justify-content: center; } /* center the title on very small screens */
+    /* Mobile tweaks */
+    @media (max-width:600px){
+      nav a{ display:block; margin:6px 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO with banner and title on the right -->
-  <header class="hero">
-    <div class="hero-inner">
-      <h1 class="site-title">theveillifting</h1>
-    </div>
+  <!-- Original-style header title -->
+  <header>
+    <h1>theveillifting</h1>
   </header>
 
-  <!-- Navigation -->
+  <!-- Banner below the title (keeps artwork visible; no overlay text) -->
+  <div class="banner" role="img" aria-label="Site banner"></div>
+
+  <!-- Sticky nav like your original setup -->
   <nav>
     <a href="#bio">Bio</a>
     <a href="#book">Book</a>
@@ -159,4 +123,44 @@
       </p>
     </section>
 
-    <section
+    <section id="language-of-the-birds">
+      <img src="49FC8180_resized.PNG" alt="Birds" class="bird-image" />
+      <h2>Language of the Birds</h2>
+      <p>
+        The "Language of the Birds" is a mystical concept that refers to a perfect, divine, and often secret language understood by the enlightened. It appears in myths, alchemical writings, and poetry as a symbol of higher wisdom and hidden truths that can only be heard by those prepared to receive them.
+      </p>
+    </section>
+
+    <section id="blog">
+      <h2>Blog</h2>
+      <p>Welcome to my thoughts, musings, and writings.</p>
+
+      <!-- ⭐⭐ BLOG POSTS START HERE ⭐⭐ -->
+      <div class="blog-post">
+        <h3>First Blog Post</h3>
+        <p><em>August 12, 2025</em></p>
+        <p>This is where your first blog post goes. To add a new post, copy this whole &lt;div class="blog-post"&gt;...&lt;/div&gt; block and paste it below.</p>
+      </div>
+      <!-- ⭐⭐ ADD NEW POSTS ABOVE THIS LINE ⭐⭐ -->
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:rubyeyes22@hotmail.com">rubyeyes22@hotmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/theveillifting" target="_blank" rel="noopener">@theveillifting</a></p>
+    </section>
+  </main>
+
+  <script>
+    // Active link highlight on scroll (same behavior as before)
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 90;
+        if (scrollY >= sectionTop) current = section.id;
+      });
+      navLinks.forEach((link) => {
+        link.classList.toggle("active",
