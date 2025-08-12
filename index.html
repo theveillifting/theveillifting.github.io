@@ -1,201 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>theveillifting – Writing, Spirituality & Poetry</title>
-  <meta name="description" content="Personal site for writing, spirituality, poetry, and creative work." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg-gradient: linear-gradient(180deg, #5c3d7a, #2e1b47);
-      --text: #f9f6ff;
-      --accent: #b28dff;
-      --card: rgba(255, 255, 255, 0.05);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Veil Lifting</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(180deg, #5c3d7a, #2e1b47);
+    color: #f9f6ff;
+    line-height: 1.6;
+    text-align: center;
+  }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Open Sans', sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
+  header img.banner {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
-    header {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-    }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin: 20px 0 10px;
+    color: #ffd966;
+  }
 
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      margin: 0;
-      color: var(--accent);
-    }
+  img.birds {
+    display: block;
+    margin: 20px auto;
+    max-width: 200px;
+    height: auto;
+  }
 
-    nav {
-      text-align: center;
-      padding: 0.5rem 0;
-      background-color: rgba(46, 27, 71, 0.6);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+  section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: left;
+  }
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: 600;
-      transition: color 0.2s ease-in-out;
-    }
+  h2 {
+    color: #ffd966;
+    font-family: 'Playfair Display', serif;
+    margin-top: 40px;
+  }
 
-    nav a.active {
-      color: var(--accent);
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 2px;
-    }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 1rem;
-    }
-
-    section {
-      background: var(--card);
-      border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--accent);
-      margin-top: 0;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-
-    a {
-      color: var(--accent);
-    }
-
-    img.bird-image {
-      width: 150px;
-      height: auto;
-      display: block;
-      margin: 10px auto 20px;
-      border-radius: 8px;
-    }
-
-    .blog-post {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 1rem;
-      margin-top: 1rem;
-    }
-
-    /* 📱 Mobile Styles */
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-    }
-  </style>
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 40px;
+    border-top: 1px solid #444;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>theveillifting</h1>
-  </header>
 
-  <nav>
-    <a href="#bio">Bio</a>
-    <a href="#book">Book</a>
-    <a href="#language-of-the-birds">Language of the Birds</a>
-    <a href="#blog">Blog</a>
-    <a href="#journal">Journal</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header>
+  <img src="banner.png" alt="Website Banner" class="banner">
+</header>
 
-  <main>
-    <section id="bio">
-      <h2>About Me</h2>
-      <p>
-        I am a writer, poet, and spiritual explorer. My work blends mysticism, symbolism, and personal experience to invite readers into other realms. Through my poetry, prose, and reflections, I seek to lift the veil between the seen and unseen.
-      </p>
-    </section>
+<img src="birds.png" alt="Birds Logo" class="birds">
 
-    <section id="book">
-      <h2>About My Book</h2>
-      <p>
-        My current book-in-progress is a fusion of spiritual allegory, lyrical prose, and symbolic storytelling. It draws upon ancient wisdom traditions, personal visions, and the language of the soul.
-      </p>
-    </section>
+<h1>The Veil Lifting</h1>
 
-    <section id="language-of-the-birds">
-      <img src="49FC8180_resized.PNG" alt="Birds" class="bird-image" />
-      <h2>Language of the Birds</h2>
-      <p>
-        The "Language of the Birds" is a mystical concept that refers to a perfect, divine, and often secret language understood by the enlightened. It appears in myths, alchemical writings, and poetry as a symbol of higher wisdom and hidden truths that can only be heard by those prepared to receive them.
-      </p>
-    </section>
+<section id="about">
+  <h2>About</h2>
+  <p>Welcome to my space for writing, spirituality, and poetry. Here you'll find reflections, creative works, and insights from my journey.</p>
+</section>
 
-    <section id="blog">
-      <h2>Blog</h2>
-      <p>Welcome to my thoughts, musings, and writings.</p>
+<section id="blog">
+  <h2>Blog</h2>
+  <p><em>Coming soon! My thoughts, poems, and stories will live here.</em></p>
+</section>
 
-      <!-- ⭐⭐ BLOG POSTS START HERE ⭐⭐ -->
-      <div class="blog-post">
-        <h3>First Blog Post</h3>
-        <p><em>August 12, 2025</em></p>
-        <p>This is where your first blog post goes. To add a new post, copy this whole &lt;div class="blog-post"&gt;...&lt;/div&gt; block and paste it below.</p>
-      </div>
-      <!-- ⭐⭐ ADD NEW POSTS ABOVE THIS LINE ⭐⭐ -->
-    </section>
+<footer>
+  &copy; 2025 The Veil Lifting — All Rights Reserved
+</footer>
 
-    <section id="journal">
-      <h2>Journal</h2>
-      <p>
-        This is my space for personal notes, inspirations, and moments I want to remember.
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:rubyeyes22@hotmail.com">rubyeyes22@hotmail.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/theveillifting" target="_blank">@theveillifting</a></p>
-    </section>
-  </main>
-
-  <script>
-    // Highlight nav link on scroll
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav a");
-
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 80;
-        if (scrollY >= sectionTop) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${current}`) {
-          link.classList.add("active");
-        }
-      });
-    });
-  </script>
 </body>
 </html>
