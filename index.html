@@ -21,7 +21,6 @@
       font:16px/1.6 'Open Sans',system-ui,sans-serif; scroll-behavior:smooth;
     }
 
-    /* Header title ABOVE the banner */
     header{
       text-align:center;
       padding:22px 12px 6px;
@@ -40,7 +39,6 @@
       border-bottom:1px solid var(--card-border);
     }
 
-    /* Sticky blurred nav */
     nav{
       position:sticky; top:0; z-index:1000;
       text-align:center; padding:10px 0;
@@ -58,7 +56,6 @@
       border-color:var(--violet);
     }
 
-    /* Content sections */
     main{ max-width:900px; margin:0 auto; padding:16px; }
     section{
       background:var(--card-bg);
@@ -76,7 +73,6 @@
     }
     a{ color:var(--violet); }
 
-    /* Birds image small & centered */
     .bird-image{
       width:150px; height:auto; display:block;
       margin:10px auto 18px;
@@ -88,8 +84,9 @@
       border-top:1px solid rgba(0,0,0,.08);
       padding-top:1rem; margin-top:1rem;
     }
+    .blog-post h3{ margin:0 0 6px; }
+    .blog-post .date{ opacity:.8; font-style:italic; margin:0 0 10px; display:block; }
 
-    /* Mobile nav stacking */
     @media (max-width:600px){
       nav a{ display:block; margin:6px 0; }
     }
@@ -97,13 +94,11 @@
 </head>
 <body>
 
-  <!-- Title above the banner -->
   <header>
     <h1>theveillifting</h1>
     <img src="Untitled design-29.png" alt="Banner" class="banner-img" />
   </header>
 
-  <!-- Sticky nav -->
   <nav>
     <a href="#bio">Bio</a>
     <a href="#book">Book</a>
@@ -137,12 +132,9 @@
 
     <section id="blog">
       <h2>Blog</h2>
-      <p>Welcome to my thoughts, musings, and writings.</p>
-      <div class="blog-post">
-        <h3>First Blog Post</h3>
-        <p><em>August 12, 2025</em></p>
-        <p>This is where your first blog post goes. To add a new post, copy this whole &lt;div class="blog-post"&gt;...&lt;/div&gt; block and paste it below.</p>
-      </div>
+      <p>New entries appear here automatically from <code>posts.json</code>.</p>
+      <div id="posts"></div>
+      <noscript><p>(Enable JavaScript to see posts.)</p></noscript>
     </section>
 
     <section id="contact">
@@ -153,9 +145,9 @@
   </main>
 
   <script>
+    // Active menu highlight on scroll
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav a");
-
     window.addEventListener("scroll", () => {
       let current = "";
       sections.forEach((section) => {
@@ -166,6 +158,31 @@
         link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
       });
     });
+
+    // BLOG: load posts.json and render
+    async function loadPosts() {
+      const box = document.getElementById('posts');
+      try {
+        const res = await fetch('posts.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Missing posts.json');
+        const data = await res.json();
+        // newest first if you put newest at the top of the JSON array
+        if (!Array.isArray(data) || data.length === 0) {
+          box.innerHTML = "<p>(No posts yet — click 'Add file' → 'Create new file' in GitHub and add posts.json.)</p>";
+          return;
+        }
+        box.innerHTML = data.map(p => `
+          <div class="blog-post">
+            <h3>${p.title || 'Untitled'}</h3>
+            <span class="date">${p.date || ''}</span>
+            <p>${(p.content || '').replace(/\n/g,'<br>')}</p>
+          </div>
+        `).join('');
+      } catch (e) {
+        box.innerHTML = "<p>(Couldn't load posts yet. Make sure a file named <strong>posts.json</strong> exists.)</p>";
+      }
+    }
+    loadPosts();
   </script>
 
 </body>
