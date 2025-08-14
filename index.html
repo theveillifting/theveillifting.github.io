@@ -8,91 +8,88 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --lavender:#E6E6FA;           /* page background */
-      --text:#2b2340;               /* readable dark text */
-      --violet:#5c2b91;             /* deep purple for title & headings */
-      --card-bg:#d8cde8;            /* darker lavender for sections (not white) */
-      --nav-bg: rgba(92, 43, 145, 0.20); /* translucent deep purple */
-      --gold:#d4b46a;               /* nav underline accent */
-      --border: rgba(0,0,0,.10);
+      --lavender:#E6E6FA;
+      --text:#2b2340;
+      --violet:#9400D3;
+      --card-bg: rgba(255,255,255,.80);
+      --card-border: rgba(0,0,0,.08);
+      --nav-bg: rgba(148, 0, 211, 0.18);
     }
-
     html,body{
       margin:0; padding:0; background:var(--lavender); color:var(--text);
       font:16px/1.6 'Open Sans',system-ui,sans-serif; scroll-behavior:smooth;
     }
-
-    /* Header */
     header{
-      text-align:center; padding:22px 12px 6px; background:var(--lavender);
+      text-align:center;
+      padding:22px 12px 6px;
+      background:var(--lavender);
     }
     header h1{
       font-family:'Great Vibes',cursive;
       font-size:clamp(40px,6vw,64px);
-      margin:0 0 12px 0; color:var(--violet);
+      margin:0 0 12px 0;
+      color:var(--violet);
       text-shadow:0 2px 10px rgba(0,0,0,.25);
     }
     .banner-img{
       width:100%; height:auto; display:block; margin:0 auto;
-      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+      border-top:1px solid var(--card-border);
+      border-bottom:1px solid var(--card-border);
     }
-
-    /* Nav */
     nav{
       position:sticky; top:0; z-index:1000;
       text-align:center; padding:10px 0;
       background:var(--nav-bg); backdrop-filter: blur(8px);
-      border-bottom:1px solid var(--border);
+      border-bottom:1px solid var(--card-border);
     }
     nav a{
       color:var(--text); text-decoration:none; margin:0 12px; font-weight:700;
-      padding-bottom:6px; border-bottom:2px solid transparent;
-      transition:color .2s ease, border-color .2s ease;
+      transition:color .2s ease-in-out, border-color .2s ease-in-out;
+      border-bottom:2px solid transparent; padding-bottom:2px;
     }
     nav a:hover{ color:var(--violet); }
-    nav a.active{ color:var(--violet); border-color:var(--gold); }
-
-    /* Sections */
+    nav a.active{
+      color:var(--violet);
+      border-color:var(--violet);
+    }
     main{ max-width:900px; margin:0 auto; padding:16px; }
     section{
       background:var(--card-bg);
-      border:1px solid var(--border);
+      border:1px solid var(--card-border);
       border-radius:12px;
-      padding:24px; margin:22px 0;
+      padding:24px;
+      margin:22px 0;
+      box-shadow:0 8px 24px rgba(0,0,0,.06);
     }
     h2{
       font-family:'Playfair Display',serif;
-      color:var(--violet); font-size:1.9rem; margin:0 0 10px;
+      color:var(--violet);
+      font-size:1.9rem;
+      margin:0 0 10px;
     }
     a{ color:var(--violet); }
-
-    /* Media */
     .book-cover{
-      width:260px; max-width:90%;
-      height:auto; display:block;
+      width:220px; height:auto; display:block;
       margin:10px auto 18px;
       border-radius:8px;
       box-shadow:0 6px 18px rgba(0,0,0,.18);
     }
-
-    /* Blog posts */
-    .blog-post{ border-top:1px solid rgba(0,0,0,.10); padding-top:1rem; margin-top:1rem; }
-    .blog-post h3{ margin:0 0 6px; }
-    .blog-post .date{ opacity:.8; font-style:italic; margin:0 0 10px; display:block; }
-
-    /* Mobile nav */
-    @media (max-width:600px){ nav a{ display:block; margin:6px 0; } }
+    .blog-post{
+      border-top:1px solid rgba(0,0,0,.08);
+      padding-top:1rem; margin-top:1rem;
+    }
+    @media (max-width:600px){
+      nav a{ display:block; margin:6px 0; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Title + Banner -->
   <header>
     <h1>theveillifting</h1>
     <img src="Untitled design-29.png" alt="Banner" class="banner-img" />
   </header>
 
-  <!-- Nav -->
   <nav>
     <a href="#bio">Bio</a>
     <a href="#book">Book</a>
@@ -117,31 +114,21 @@
     </section>
 
     <section id="language-of-the-birds">
+      <img src="language-of-the-birds-cover.jpeg" alt="Language of the Birds eBook Cover" class="book-cover" />
       <h2>Language of the Birds</h2>
-      <!-- Medium-sized ebook cover (old bird image removed) -->
-      <img src="The Language of the Birds.jpeg" alt="Language of the Birds eBook Cover" class="book-cover" />
       <p>
         The "Language of the Birds" is a mystical concept that refers to a perfect, divine, and often secret language understood by the enlightened. It appears in myths, alchemical writings, and poetry as a symbol of higher wisdom and hidden truths that can only be heard by those prepared to receive them.
       </p>
-      <p><em>This chapter is also available as a standalone ebook.</em></p>
     </section>
 
     <section id="blog">
       <h2>Blog</h2>
-      <div id="posts">
-        <!-- Fallback example posts (these show if posts.txt isn't present) -->
-        <div class="blog-post">
-          <h3>Stepping Into the Mystery</h3>
-          <span class="date">August 12, 2025</span>
-          <p>Today I begin sharing my journey more openly. Writing feels like walking through a doorway into another realm. I hope my words serve as both mirror and lantern for those who wander here.</p>
-        </div>
-        <div class="blog-post">
-          <h3>The Quiet Between the Lines</h3>
-          <span class="date">August 5, 2025</span>
-          <p>Sometimes the most important things are not what is written, but what hums quietly in the spaces between. These silences are alive—they hold the heartbeat of the work.</p>
-        </div>
+      <p>Welcome to my thoughts, musings, and writings.</p>
+      <div class="blog-post">
+        <h3>First Blog Post</h3>
+        <p><em>August 12, 2025</em></p>
+        <p>This is where your first blog post goes. You can replace this text with your own writing.</p>
       </div>
-      <noscript><p>(Enable JavaScript to see automatic posts.)</p></noscript>
     </section>
 
     <section id="contact">
@@ -152,7 +139,6 @@
   </main>
 
   <script>
-    // Highlight active nav link on scroll
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav a");
     window.addEventListener("scroll", () => {
@@ -165,26 +151,6 @@
         link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
       });
     });
-
-    // Try to load posts from posts.txt (optional). If not found, keep fallback posts.
-    fetch('posts.txt', { cache: 'no-store' })
-      .then(r => r.ok ? r.text() : Promise.reject())
-      .then(text => {
-        const container = document.getElementById('posts');
-        const blocks = text.trim().split(/\r?\n-{3,}\r?\n/).map(b => b.trim()).filter(Boolean);
-        if (!blocks.length) return;
-
-        const html = blocks.map(block => {
-          const lines = block.split(/\r?\n/);
-          const title = (lines.shift() || 'Untitled').trim();
-          const date  = (lines.shift() || '').trim();
-          const body  = lines.map(l => l.trim()).filter(Boolean).map(p => `<p>${p}</p>`).join('');
-          return `<div class="blog-post"><h3>${title}</h3>${date ? `<span class="date">${date}</span>`:''}${body}</div>`;
-        }).join('');
-
-        container.innerHTML = html;
-      })
-      .catch(() => { /* leave fallback posts as-is */ });
   </script>
 
 </body>
