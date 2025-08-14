@@ -11,14 +11,16 @@
       --lavender:#E6E6FA;
       --text:#2b2340;
       --violet:#9400D3;
-      --card-bg: rgba(255,255,255,.80);
+      --card-bg: rgba(230,230,250,0.85);
       --card-border: rgba(0,0,0,.08);
       --nav-bg: rgba(148, 0, 211, 0.18);
     }
+
     html,body{
       margin:0; padding:0; background:var(--lavender); color:var(--text);
       font:16px/1.6 'Open Sans',system-ui,sans-serif; scroll-behavior:smooth;
     }
+
     header{
       text-align:center;
       padding:22px 12px 6px;
@@ -36,6 +38,7 @@
       border-top:1px solid var(--card-border);
       border-bottom:1px solid var(--card-border);
     }
+
     nav{
       position:sticky; top:0; z-index:1000;
       text-align:center; padding:10px 0;
@@ -52,6 +55,7 @@
       color:var(--violet);
       border-color:var(--violet);
     }
+
     main{ max-width:900px; margin:0 auto; padding:16px; }
     section{
       background:var(--card-bg);
@@ -68,16 +72,19 @@
       margin:0 0 10px;
     }
     a{ color:var(--violet); }
-    .book-cover{
-      width:220px; height:auto; display:block;
+
+    .bird-image{
+      width:200px; height:auto; display:block;
       margin:10px auto 18px;
       border-radius:8px;
       box-shadow:0 6px 18px rgba(0,0,0,.18);
     }
+
     .blog-post{
       border-top:1px solid rgba(0,0,0,.08);
       padding-top:1rem; margin-top:1rem;
     }
+
     @media (max-width:600px){
       nav a{ display:block; margin:6px 0; }
     }
@@ -114,7 +121,7 @@
     </section>
 
     <section id="language-of-the-birds">
-      <img src="language-of-the-birds-cover.jpeg" alt="Language of the Birds eBook Cover" class="book-cover" />
+      <img src="language-of-the-birds-cover.jpeg" alt="Language of the Birds Book Cover" class="bird-image" />
       <h2>Language of the Birds</h2>
       <p>
         The "Language of the Birds" is a mystical concept that refers to a perfect, divine, and often secret language understood by the enlightened. It appears in myths, alchemical writings, and poetry as a symbol of higher wisdom and hidden truths that can only be heard by those prepared to receive them.
@@ -124,10 +131,11 @@
     <section id="blog">
       <h2>Blog</h2>
       <p>Welcome to my thoughts, musings, and writings.</p>
+
       <div class="blog-post">
         <h3>First Blog Post</h3>
         <p><em>August 12, 2025</em></p>
-        <p>This is where your first blog post goes. You can replace this text with your own writing.</p>
+        <p>This is where your first blog post goes. To add a new post, copy this whole &lt;div class="blog-post"&gt;...&lt;/div&gt; block and paste it below.</p>
       </div>
     </section>
 
@@ -141,6 +149,7 @@
   <script>
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav a");
+
     window.addEventListener("scroll", () => {
       let current = "";
       sections.forEach((section) => {
