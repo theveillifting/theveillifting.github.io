@@ -5,96 +5,309 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>theveillifting – Writing, Spirituality & Poetry</title>
   <meta name="description" content="Personal site for writing, spirituality, poetry, and creative work." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --lavender:#E6E6FA;
-      --text:#2b2340;
-      --violet:#9400D3;
-      --card-bg: rgba(230,230,250,0.85);
-      --card-border: rgba(0,0,0,.08);
-      --nav-bg: rgba(148, 0, 211, 0.18);
+    :root {
+      --ink: #1a1320;
+      --parchment: #f5f0e8;
+      --parchment-dark: #ede5d4;
+      --gold: #b8860b;
+      --gold-light: #d4a843;
+      --gold-pale: #f5e6c0;
+      --violet-deep: #2d1b4e;
+      --violet-mid: #5c3d8a;
+      --violet-soft: #9b7dc5;
+      --violet-pale: #e8dff5;
+      --crimson: #7a1f3d;
+      --smoke: rgba(255,255,255,0.04);
     }
 
-    html,body{
-      margin:0; padding:0; background:var(--lavender); color:var(--text);
-      font:16px/1.6 'Open Sans',system-ui,sans-serif; scroll-behavior:smooth;
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--ink);
+      color: var(--parchment);
+      font-family: 'IM Fell English', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+      scroll-behavior: smooth;
     }
 
-    header{
-      text-align:center;
-      padding:22px 12px 6px;
-      background:var(--lavender);
-    }
-    header h1{
-      font-family:'Great Vibes',cursive;
-      font-size:clamp(40px,6vw,64px);
-      margin:0 0 12px 0;
-      color:var(--violet);
-      text-shadow:0 2px 10px rgba(0,0,0,.25);
-    }
-    .banner-img{
-      width:100%; height:auto; display:block; margin:0 auto;
-      border-top:1px solid var(--card-border);
-      border-bottom:1px solid var(--card-border);
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      opacity: 0.6;
     }
 
-    nav{
-      position:sticky; top:0; z-index:1000;
-      text-align:center; padding:10px 0;
-      background:var(--nav-bg); backdrop-filter: blur(8px);
-      border-bottom:1px solid var(--card-border);
+    /* ── STARFIELD ── */
+    .stars {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      overflow: hidden;
     }
-    nav a{
-      color:var(--text); text-decoration:none; margin:0 12px; font-weight:700;
-      transition:color .2s ease-in-out, border-color .2s ease-in-out;
-      border-bottom:2px solid transparent; padding-bottom:2px;
+    .stars span {
+      position: absolute;
+      display: block;
+      border-radius: 50%;
+      background: var(--gold-light);
+      animation: twinkle var(--d, 4s) ease-in-out infinite var(--delay, 0s);
     }
-    nav a:hover{ color:var(--violet); }
-    nav a.active{
-      color:var(--violet);
-      border-color:var(--violet);
-    }
-
-    main{ max-width:900px; margin:0 auto; padding:16px; }
-    section{
-      background:var(--card-bg);
-      border:1px solid var(--card-border);
-      border-radius:12px;
-      padding:24px;
-      margin:22px 0;
-      box-shadow:0 8px 24px rgba(0,0,0,.06);
-    }
-    h2{
-      font-family:'Playfair Display',serif;
-      color:var(--violet);
-      font-size:1.9rem;
-      margin:0 0 10px;
-    }
-    a{ color:var(--violet); }
-
-    .bird-image{
-      width:200px; height:auto; display:block;
-      margin:10px auto 18px;
-      border-radius:8px;
-      box-shadow:0 6px 18px rgba(0,0,0,.18);
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.08; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(1.3); }
     }
 
-    .blog-post{
-      border-top:1px solid rgba(0,0,0,.08);
-      padding-top:1rem; margin-top:1rem;
+    /* ── HEADER ── */
+    header {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 60px 20px 0;
+    }
+    .site-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--gold-light);
+      text-shadow: 0 0 40px rgba(184,134,11,0.35), 0 2px 4px rgba(0,0,0,0.8);
+      margin: 0 0 8px;
+      animation: fadeDown 1.2s ease both;
+    }
+    .site-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(14px, 2vw, 18px);
+      color: var(--violet-soft);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin: 0 0 36px;
+      animation: fadeDown 1.4s ease both;
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width:600px){
-      nav a{ display:block; margin:6px 0; }
+    .banner-wrap {
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+      animation: fadeIn 1.8s ease both;
+    }
+    .banner-img {
+      width: 100%; height: auto; display: block;
+      border-top: 1px solid rgba(184,134,11,0.3);
+      border-bottom: 1px solid rgba(184,134,11,0.3);
+      filter: sepia(0.15) brightness(0.88);
+    }
+    .banner-fade {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent, var(--ink));
+      pointer-events: none;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 1000;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 4px;
+      padding: 10px 16px;
+      background: rgba(26,19,32,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(184,134,11,0.2);
+    }
+    nav a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--parchment-dark);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 2px;
+      transition: color 0.2s, background 0.2s;
+    }
+    nav a:hover { color: var(--gold-light); }
+    nav a.active {
+      color: var(--gold-light);
+      background: rgba(184,134,11,0.1);
+    }
+
+    /* ── MAIN ── */
+    main {
+      position: relative; z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      margin: 44px 0;
+      padding: 36px 40px;
+      background: rgba(255,255,255,0.033);
+      border: 1px solid rgba(184,134,11,0.18);
+      border-radius: 2px;
+      position: relative;
+      animation: riseIn 0.7s ease both;
+    }
+    section::before {
+      content: '';
+      position: absolute; top: 0; left: 40px; right: 40px; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(184,134,11,0.5), transparent);
+    }
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION ORNAMENT ── */
+    .ornament {
+      display: block;
+      text-align: center;
+      font-size: 22px;
+      color: var(--gold);
+      opacity: 0.6;
+      letter-spacing: 0.4em;
+      margin: 0 0 18px;
+      line-height: 1;
+    }
+
+    h2 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(16px, 2.5vw, 22px);
+      font-weight: 400;
+      color: var(--gold-light);
+      letter-spacing: 0.06em;
+      margin: 0 0 18px;
+      text-shadow: 0 0 20px rgba(184,134,11,0.25);
+    }
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--violet-soft);
+      margin: 0 0 4px;
+    }
+
+    p { margin: 0 0 1em; color: var(--parchment-dark); }
+    p:last-child { margin-bottom: 0; }
+
+    a { color: var(--gold-light); transition: color 0.2s; }
+    a:hover { color: var(--gold); }
+
+    /* ── BIRD IMAGE ── */
+    .bird-image {
+      width: 180px; height: auto; display: block;
+      margin: 0 auto 24px;
+      border-radius: 2px;
+      border: 1px solid rgba(184,134,11,0.3);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 0 4px rgba(184,134,11,0.07);
+      filter: sepia(0.1);
+    }
+
+    /* ── PULL QUOTE ── */
+    blockquote {
+      margin: 24px 0;
+      padding: 18px 24px;
+      border-left: 2px solid var(--gold);
+      background: rgba(184,134,11,0.06);
+      font-style: italic;
+      font-size: 1.1em;
+      color: var(--gold-pale);
+    }
+    blockquote p { color: var(--gold-pale); margin: 0; }
+
+    /* ── BLOG ── */
+    .blog-post {
+      border-top: 1px solid rgba(184,134,11,0.15);
+      padding-top: 22px;
+      margin-top: 22px;
+    }
+    .post-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--violet-soft);
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--parchment-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: var(--gold-light); }
+    .contact-icon {
+      width: 28px; height: 28px;
+      border: 1px solid rgba(184,134,11,0.35);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 30px 20px 50px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(245,240,232,0.25);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      text-align: center;
+      color: var(--gold);
+      opacity: 0.4;
+      letter-spacing: 0.5em;
+      font-size: 1rem;
+      margin: 4px 0 20px;
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 24px 20px; }
+      section::before { left: 20px; right: 20px; }
+      nav a { font-size: 11px; padding: 5px 10px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
+
   <header>
-    <h1>theveillifting</h1>
-    <img src="Untitled design-29.png" alt="Banner" class="banner-img" />
+    <p class="site-tagline">lifting the veil between worlds</p>
+    <h1 class="site-title">theveillifting</h1>
+    <div class="banner-wrap">
+      <img src="Untitled design-29.png" alt="Banner" class="banner-img" />
+      <div class="banner-fade"></div>
+    </div>
   </header>
 
   <nav>
@@ -107,58 +320,110 @@
 
   <main>
     <section id="bio">
+      <span class="ornament">✦ ✦ ✦</span>
       <h2>About Me</h2>
+      <div class="divider">— ◆ —</div>
       <p>
         I am a writer, poet, and spiritual explorer. My work blends mysticism, symbolism, and personal experience to invite readers into other realms. Through my poetry, prose, and reflections, I seek to lift the veil between the seen and unseen.
       </p>
+      <blockquote><p>To name a thing is to call it forth from the dark. To write it is to make it stay.</p></blockquote>
     </section>
 
     <section id="book">
+      <span class="ornament">✦ ✦ ✦</span>
       <h2>About My Book</h2>
+      <div class="divider">— ◆ —</div>
       <p>
         My current book-in-progress is a fusion of spiritual allegory, lyrical prose, and symbolic storytelling. It draws upon ancient wisdom traditions, personal visions, and the language of the soul.
       </p>
     </section>
 
     <section id="language-of-the-birds">
+      <span class="ornament">✦ ✦ ✦</span>
       <img src="language-of-the-birds-cover.jpeg" alt="Language of the Birds Book Cover" class="bird-image" />
       <h2>Language of the Birds</h2>
+      <div class="divider">— ◆ —</div>
       <p>
-        The "Language of the Birds" is a mystical concept that refers to a perfect, divine, and often secret language understood by the enlightened. It appears in myths, alchemical writings, and poetry as a symbol of higher wisdom and hidden truths that can only be heard by those prepared to receive them.
+        The "Language of the Birds" is a mystical concept referring to a perfect, divine, and often secret language understood by the enlightened. It appears in myths, alchemical writings, and poetry as a symbol of higher wisdom and hidden truths — heard only by those prepared to receive them.
       </p>
     </section>
 
     <section id="blog">
+      <span class="ornament">✦ ✦ ✦</span>
       <h2>Blog</h2>
-      <p>Welcome to my thoughts, musings, and writings.</p>
+      <div class="divider">— ◆ —</div>
+      <p style="font-style: italic; color: var(--violet-soft);">Thoughts, musings, and writings from the threshold.</p>
 
       <div class="blog-post">
         <h3>First Blog Post</h3>
-        <p><em>August 12, 2025</em></p>
-        <p>This is where your first blog post goes. To add a new post, copy this whole &lt;div class="blog-post"&gt;...&lt;/div&gt; block and paste it below.</p>
+        <p class="post-date">August 12, 2025</p>
+        <p>This is where your first blog post goes. To add a new post, copy this whole <code style="font-size:0.8em; background:rgba(255,255,255,0.07); padding:1px 4px; border-radius:2px;">&lt;div class="blog-post"&gt;...&lt;/div&gt;</code> block and paste it above.</p>
       </div>
     </section>
 
     <section id="contact">
+      <span class="ornament">✦ ✦ ✦</span>
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:rubyeyes22@hotmail.com">rubyeyes22@hotmail.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/theveillifting" target="_blank" rel="noopener">@theveillifting</a></p>
+      <div class="divider">— ◆ —</div>
+      <p style="font-style: italic; margin-bottom: 18px;">Reach out — the door between worlds is always open.</p>
+      <div class="contact-links">
+        <a href="mailto:rubyeyes22@hotmail.com" class="contact-link">
+          <span class="contact-icon">✉</span>
+          rubyeyes22@hotmail.com
+        </a>
+        <a href="https://instagram.com/theveillifting" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-icon">◈</span>
+          @theveillifting
+        </a>
+      </div>
     </section>
   </main>
 
-  <script>
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav a");
+  <footer>
+    <div class="divider" style="opacity:0.2; margin-bottom:10px;">✦ ✦ ✦</div>
+    theveillifting &nbsp;·&nbsp; all words belong to the wind
+  </footer>
 
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 90;
-        if (scrollY >= sectionTop) current = section.id;
+  <script>
+    /* ── Starfield ── */
+    const starsEl = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      const s = document.createElement('span');
+      const size = Math.random() * 2 + 0.5;
+      s.style.cssText = `
+        width:${size}px; height:${size}px;
+        top:${Math.random()*100}%;
+        left:${Math.random()*100}%;
+        --d:${(Math.random()*5+3).toFixed(1)}s;
+        --delay:-${(Math.random()*6).toFixed(1)}s;
+      `;
+      starsEl.appendChild(s);
+    }
+
+    /* ── Active nav ── */
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (scrollY >= sec.offsetTop - 100) current = sec.id;
       });
-      navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
       });
+    });
+
+    /* ── Scroll reveal ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section').forEach(s => {
+      s.style.animationPlayState = 'paused';
+      observer.observe(s);
     });
   </script>
 
