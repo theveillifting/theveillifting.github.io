@@ -258,13 +258,18 @@
     }
     .contact-link:hover { color: var(--gold-light); }
     .contact-icon {
-      width: 28px; height: 28px;
+      width: 44px; height: 44px;
       border: 1px solid rgba(184,134,11,0.35);
-      border-radius: 2px;
+      border-radius: 6px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 13px;
+      font-size: 22px;
       color: var(--gold);
       flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .contact-link:hover .contact-icon {
+      background: rgba(184,134,11,0.12);
+      border-color: rgba(184,134,11,0.6);
     }
 
     /* ── FOOTER ── */
@@ -368,11 +373,15 @@
       <p style="font-style: italic; margin-bottom: 18px;">Reach out — the door between worlds is always open.</p>
       <div class="contact-links">
         <a href="mailto:rubyeyes22@hotmail.com" class="contact-link">
-          <span class="contact-icon">✉</span>
+          <span class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </span>
           rubyeyes22@hotmail.com
         </a>
         <a href="https://instagram.com/theveillifting" target="_blank" rel="noopener" class="contact-link">
-          <span class="contact-icon">◈</span>
+          <span class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </span>
           @theveillifting
         </a>
       </div>
