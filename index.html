@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,6 +163,10 @@
       position: absolute; top: 0; left: 40px; right: 40px; height: 1px;
       background: linear-gradient(to right, transparent, rgba(184,134,11,0.5), transparent);
     }
+    .anchor-alias {
+      position: absolute;
+      top: -70px;
+    }
     @keyframes riseIn {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -238,6 +244,11 @@
       letter-spacing: 0.08em;
       margin-bottom: 10px;
     }
+    .blog-empty {
+      font-style: italic;
+      color: var(--violet-soft);
+      margin-top: 22px;
+    }
 
     /* ── CONTACT ── */
     .contact-links {
@@ -310,7 +321,7 @@
     <p class="site-tagline">lifting the veil between worlds</p>
     <h1 class="site-title">theveillifting</h1>
     <div class="banner-wrap">
-      <img src="Untitled design-29.png" alt="Banner" class="banner-img" />
+      <img src="{{ '/assets/images/banner.png' | relative_url }}" alt="theveillifting banner" class="banner-img" />
       <div class="banner-fade"></div>
     </div>
   </header>
@@ -319,7 +330,7 @@
     <a href="#bio">Bio</a>
     <a href="#book">Book</a>
     <a href="#language-of-the-birds">Language of the Birds</a>
-    <a href="#blog">Blog</a>
+    <a href="#journal">Journal</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -345,7 +356,7 @@
 
     <section id="language-of-the-birds">
       <span class="ornament">✦ ✦ ✦</span>
-      <img src="language-of-the-birds-cover.jpeg" alt="Language of the Birds Book Cover" class="bird-image" />
+      <img src="{{ '/assets/images/language-of-the-birds-cover.jpeg' | relative_url }}" alt="Language of the Birds Book Cover" class="bird-image" />
       <h2>Language of the Birds</h2>
       <div class="divider">— ◆ —</div>
       <p>
@@ -353,17 +364,24 @@
       </p>
     </section>
 
-    <section id="blog">
+    <section id="journal">
+      <span id="blog" class="anchor-alias"></span>
       <span class="ornament">✦ ✦ ✦</span>
-      <h2>Blog</h2>
+      <h2>Journal</h2>
       <div class="divider">— ◆ —</div>
       <p style="font-style: italic; color: var(--violet-soft);">Thoughts, musings, and writings from the threshold.</p>
 
-      <div class="blog-post">
-        <h3>First Blog Post</h3>
-        <p class="post-date">August 12, 2025</p>
-        <p>This is where your first blog post goes. To add a new post, copy this whole <code style="font-size:0.8em; background:rgba(255,255,255,0.07); padding:1px 4px; border-radius:2px;">&lt;div class="blog-post"&gt;...&lt;/div&gt;</code> block and paste it above.</p>
-      </div>
+      {% if site.posts.size > 0 %}
+        {% for post in site.posts %}
+          <article class="blog-post">
+            <h3>{{ post.title }}</h3>
+            <p class="post-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+            {{ post.content }}
+          </article>
+        {% endfor %}
+      {% else %}
+        <p class="blog-empty">New writings will appear here soon.</p>
+      {% endif %}
     </section>
 
     <section id="contact">
