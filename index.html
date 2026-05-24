@@ -96,13 +96,40 @@
       position: relative;
       max-width: 860px;
       margin: 0 auto;
+      overflow: hidden;
       animation: fadeIn 1.8s ease both;
+
+      .banner-wrap::before,
+.banner-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.banner-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--ink), transparent);
+}
+
+.banner-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--ink), transparent);
+}
     }
     .banner-img {
-      width: 100%; height: auto; display: block;
-      border-top: 1px solid rgba(184,134,11,0.3);
-      border-bottom: 1px solid rgba(184,134,11,0.3);
-      filter: none;
+  width: calc(100% + 8px);
+  max-width: none;
+  margin-left: -4px;
+  height: auto;
+  display: block;
+  border-top: 1px solid rgba(184,134,11,0.3);
+  border-bottom: 1px solid rgba(184,134,11,0.3);
+  filter: none;
+}
     }
     .banner-fade {
       position: absolute; bottom: 0; left: 0; right: 0;
