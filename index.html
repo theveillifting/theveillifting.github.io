@@ -101,12 +101,7 @@
       border-bottom: 1px solid rgba(184,134,11,0.3);
       filter: none;
     }
-    .banner-fade {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      height: 100px;
-      background: linear-gradient(to bottom, transparent, var(--ink));
-      pointer-events: none;
-    }
+    .banner-fade { display: none; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     nav {
@@ -297,7 +292,6 @@
     <h1 class="site-title">theveillifting</h1>
     <div class="banner-wrap">
       <img src="Untitled design-29.png" alt="Banner" class="banner-img" />
-      <div class="banner-fade"></div>
     </div>
   </header>
 
