@@ -14,12 +14,7 @@
       --gold: #b8860b;
       --gold-light: #d4a843;
       --gold-pale: #f5e6c0;
-      --violet-deep: #2d1b4e;
-      --violet-mid: #5c3d8a;
       --violet-soft: #9b7dc5;
-      --violet-pale: #e8dff5;
-      --crimson: #7a1f3d;
-      --smoke: rgba(255,255,255,0.04);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -32,6 +27,7 @@
       font-size: 17px;
       line-height: 1.75;
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body::before {
@@ -63,6 +59,7 @@
       position: relative; z-index: 1;
       text-align: center;
       padding: 60px 20px 0;
+      overflow: hidden;
     }
     .site-title {
       font-family: 'Cinzel Decorative', serif;
@@ -90,18 +87,15 @@
     }
 
     .banner-wrap {
-      position: relative;
-      max-width: 860px;
-      margin: 0 auto;
+      width: 100%;
+      overflow: hidden;
       animation: fadeIn 1.8s ease both;
     }
     .banner-img {
       width: 100%; height: auto; display: block;
       border-top: 1px solid rgba(184,134,11,0.3);
       border-bottom: 1px solid rgba(184,134,11,0.3);
-      filter: none;
     }
-    .banner-fade { display: none; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     nav {
@@ -196,7 +190,6 @@
       border-radius: 2px;
       border: 1px solid rgba(184,134,11,0.3);
       box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 0 4px rgba(184,134,11,0.07);
-      filter: none;
     }
 
     blockquote {
