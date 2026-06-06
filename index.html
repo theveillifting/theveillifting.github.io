@@ -60,16 +60,33 @@
       text-align: center;
       padding: 60px 20px 0;
     }
-    .site-title {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(28px, 5vw, 56px);
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      color: var(--gold-light);
-      text-shadow: 0 0 40px rgba(184,134,11,0.35), 0 2px 4px rgba(0,0,0,0.8);
-      margin: 0 0 8px;
-      animation: fadeDown 1.2s ease both;
-    }
+   .site-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0 0 8px;
+  color: var(--gold-light);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(34px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow: 0 0 40px rgba(184,134,11,0.35),
+               0 2px 4px rgba(0,0,0,0.8);
+  animation: fadeDown 1.2s ease both;
+}
+
+.site-title span {
+  letter-spacing: 3px;
+}
+
+.site-title b {
+  margin: 0 1px;
+  font-size: 0.38em;
+  font-weight: 400;
+  line-height: 1;
+}
     .site-tagline {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
@@ -305,6 +322,18 @@
     }
 
     @media (max-width: 600px) {
+      .site-title {
+  gap: 2px;
+  font-size: 30px;
+}
+
+.site-title span {
+  letter-spacing: 1px;
+}
+
+.site-title b {
+  margin: 0;
+}
       section { padding: 24px 20px; }
       section::before { left: 20px; right: 20px; }
       nav a { font-size: 11px; padding: 5px 10px; }
@@ -317,7 +346,9 @@
 
   <header>
     <p class="site-tagline">lifting the veil between worlds</p>
-    <h1 class="site-title">theveillifting</h1>
+    <h1 class="site-title">
+  <span>THE</span><b>✦</b><span>VEIL</span><b>✦</b><span>LIFTING</span>
+</h1>
     <div class="banner-wrap">
       <img src="Untitled design-29.png" alt="Banner" class="banner-img" />
       <div class="banner-fade-right"></div>
