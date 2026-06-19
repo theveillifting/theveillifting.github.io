@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Veil Lifting</title>
+<meta name="description" content="Katherine Brenner — writing, spirituality, and poetry. Creative and Spiritual Alchemy." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+SC:wght@500;600;700&family=IM+Fell+English:ital@0;1&family=Cinzel:wght@500;600&family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+/* ---------- Direction: Threshold (refined, centered, serene) ---------- */
+.dir-threshold main{ padding-block:clamp(2rem,5vh,4rem); padding-inline:clamp(16px,4vw,28px); }
+.dir-threshold main section{
+  position:relative;
+  max-width:720px;
+  margin-inline:auto;
+  margin-block:clamp(1.4rem,3.5vh,2.6rem);
+  padding-block:clamp(3rem,6.5vh,5rem);
+  border:1px solid transparent;
+  border-image:linear-gradient(165deg,
+    rgba(236,205,132,.55) 0%,
+    rgba(205,161,78,.26) 32%,
+    rgba(150,120,95,.12) 62%,
+    rgba(140,110,150,.16) 100%) 1;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.022) 0%, rgba(40,30,56,.05) 55%, rgba(0,0,0,.06) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(245,228,180,.10),
+    0 44px 95px -62px rgba(0,0,0,.85);
+}
+.dir-threshold .center{ text-align:center; margin-inline:auto; }
+
+/* hero */
+.hero{
+  position:relative; overflow:hidden;
+  min-height:100svh; display:flex; flex-direction:column; align-items:center;
+  justify-content:center; text-align:center; padding:7rem 0 2.5rem; gap:1.6rem;
+}
+.hero .planet{
+  position:absolute; left:70%; top:110%; transform:translate(-50%,-50%);
+  width:min(430px,62vw); aspect-ratio:1; border-radius:50%; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 44%,
+      rgba(248,232,188,.30) 0%,
+      rgba(214,170,90,.22) 20%,
+      rgba(168,108,168,.16) 40%,
+      rgba(96,92,168,.10) 56%,
+      rgba(40,30,60,.04) 68%,
+      transparent 76%);
+  filter:blur(4px);
+  animation:planetBreathe 11s ease-in-out infinite;
+}
+@keyframes planetBreathe{ 0%,100%{ opacity:.78; transform:translate(-50%,-50%) scale(1);} 50%{ opacity:1; transform:translate(-50%,-50%) scale(1.05);} }
+@media (prefers-reduced-motion: reduce){ .hero .planet{ animation:none; } }
+.hero .tagline,.hero .wordmark,.hero .sigil,.hero .topnav,.hero .scrollcue{ position:relative; z-index:1; }
+.hero .wordmark{ font-size:clamp(2.1rem,5.8vw,4.8rem); }
+.sigil{ width:min(880px,92vw); margin:.4rem auto -.4rem; }
+.sigil img{
+  width:100%; opacity:1;
+}
+.hero .topnav{ margin-top:.4rem; }
+.scrollcue{
+  margin-top:1.2rem; color:var(--ink-faint); display:flex; flex-direction:column;
+  align-items:center; gap:.55rem; font-family:"Cormorant Garamond",serif;
+  text-transform:uppercase; letter-spacing:.3em; font-size:.7rem;
+}
+.scrollcue .v{ width:1px; height:34px; background:linear-gradient(var(--gold),transparent); animation:bob 2.6s var(--ease) infinite; }
+@keyframes bob{ 0%,100%{ transform:translateY(0); opacity:.5;} 50%{ transform:translateY(7px); opacity:1;} }
+
+/* entrance: visible by default, animates IN only while body lacks .ready */
+.hero .tagline,.hero .wordmark,.hero .sigil,.hero .topnav,.hero .scrollcue{
+  transition:opacity 1.3s var(--ease), transform 1.3s var(--ease);
+}
+.hero .wordmark{ transition-delay:.12s; }
+.hero .sigil{ transition-delay:.26s; }
+.hero .topnav{ transition-delay:.46s; }
+.hero .scrollcue{ transition-delay:.7s; }
+body:not(.ready) .hero .tagline,
+body:not(.ready) .hero .wordmark,
+body:not(.ready) .hero .topnav{ opacity:0; transform:translateY(18px); }
+body:not(.ready) .hero .sigil{ opacity:0; transform:translateY(10px) scale(.98); }
+body:not(.ready) .hero .scrollcue{ opacity:0; }
+@media (prefers-reduced-motion: reduce){
+  .hero .tagline,.hero .wordmark,.hero .sigil,.hero .topnav,.hero .scrollcue{ opacity:1 !important; transform:none !important; }
+  .scrollcue .v{ animation:none; }
+}
+
+/* section heads */
+.head{ display:flex; flex-direction:column; align-items:center; gap:1rem; margin-bottom:2.6rem; }
+.divider{ max-width:520px; margin-inline:auto; }
+
+/* long-form bio: left-aligned, comfortable reading width */
+.bio-text{
+  text-align:left;
+  max-width:68ch;
+  margin:0 auto 1.3em;
+  font-size:1.1em;
+}
+.bio-text + .bio-text{ margin-top:0; }
+
+/* book art */
+.book-art{ width:min(420px,80vw); margin:0 auto 2.4rem; }
+.book-art img{ border-radius:4px; }
+
+/* language centerpiece */
+.language{ position:relative; }
+.cover-wrap{ width:min(360px,72vw); margin:0 auto 2.4rem; }
+.cover-wrap img{ border-radius:5px; }
+.byline{
+  font-family:"Cormorant Garamond",serif; letter-spacing:.3em; text-transform:uppercase;
+  font-size:.82rem; color:var(--lav); margin:1.6rem 0 .4rem;
+}
+.author{ font-family:"Cinzel",serif; color:var(--gold-bright); letter-spacing:.14em; font-size:1.1rem; }
+.notify{ margin:2.2rem auto 0; justify-content:center; }
+
+/* blog coming soon */
+.soon-card{
+  border:1px solid var(--hair-soft); border-radius:5px; padding:2.6rem 2rem;
+  max-width:560px; margin:0 auto; text-align:center;
+  background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);
+}
+
+/* contact */
+.contact-list{ display:inline-flex; flex-direction:column; gap:1rem; text-align:left; margin-top:1.6rem; }
+</style>
+</head>
+<body class="dir-threshold">
+<canvas id="stars"></canvas>
+
+<div class="stickybar">
+  <span class="mini-mark">The Veil Lifting</span>
+  <nav class="topnav">
+    <a href="#bio">Bio</a><a href="#language">E-Book: The Language of the Birds</a><a href="#book">Book</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+  </nav>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero wrap" data-hero data-screen-label="Hero">
+  <p class="tagline">Creative and Spiritual Alchemy</p>
+  <h1 class="wordmark"><span class="sep">⋆</span>The<span class="sep">⋆</span>Veil<span class="sep">⋆</span>Lifting<span class="sep">⋆</span></h1>
+  <div class="sigil"><img src="images/banner.png" alt="Alchemical sigil — circle, triangle, square and luminous sphere" /></div>
+  <nav class="topnav">
+    <a href="#bio">Bio</a><a href="#language">E-Book: The Language of the Birds</a><a href="#book">Book</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ABOUT -->
+  <section id="bio" class="wrap center">
+    <div class="head reveal">
+      <h2 class="section-title">About Me</h2>
+      <div class="divider"><span class="ornament">✦</span></div>
+    </div>
+    <p class="lede bio-text reveal">My name is Katherine Anne Brenner, but I’m called Kathy. This is strange to me, because the name Kathy looks, through my synaesthesia, very “yellow” and I prefer the more colourful Katherine (visually). But Kathy feels more comfortable because it’s easy to say. In any case, Katherine means “pure one”, which is a lot to live up to. But I yearn to express myself with a pure heart.</p>
+    <p class="bio-text reveal">Who am I? If I zoom out (or deeply in) what I have experienced in my deepest being is that “I am you, you are me, we are one … there is only God/Source.” Still, in all that, there is room for a woman named Kathy.</p>
+    <p class="bio-text reveal">So, who is Kathy? I was born in 1977 in York, Pennsylvania, USA and I am an only child. I was a dancer from age 3–18. I went to majorette and dance school, but I choreographed my own dancing at home sometimes with scarves like the dancer Isadora Duncan. For most of my childhood, I lived in my own little world, feeling eccentric with my cat Maggie, and eventually becoming a synesthetic-music-connoisseur (I used to work at a music store). The first band I discovered and loved (outside my mom’s disco music) was the Sugarcubes from Iceland. I then got into Icelandic music. This led me to find a pen-pal there in 1996 to help me learn the language and then we ended up falling in love and marrying. I moved to Iceland in 2007 and went to university for anthropology, but I don’t consider myself an anthropologist. I’m just curious about humans and life in general.</p>
+    <p class="bio-text reveal">I’m now a 48-year-old mother of a four-year-old girl. She is a miracle and I wouldn’t be writing this book if it wasn’t for the experience I had of being overcome with raw, primordial power when I gave birth to her in 2021. It was as if I was born again. My daughter is a free spirit like me, but I spent many years “hiding my lamp under a bushel” and denying my authentic self-expression. Connecting the dots of various sufferings in youth, including mental and physical illness that had appeared to take a chunk of my life, I now feel so enriched. In my teens, thanks to mononucleosis (which developed into chronic fatigue syndrome), I became a “hermetic hermit” and learned to appreciate reading books. I think that I entered, and stayed long in, a self-imposed shell to percolate and contract so that I would later expand further into maturity and gain wisdom that might not have otherwise developed in this lifetime. A few non-dual experiences and a great deal of healing transformed my once incapacitating OCD into a superpower for creativity and organisation. I’ve broken out of my shell.</p>
+    <p class="bio-text reveal">I unveil my true self: I am passionate, creative, imaginative, curious about everything in life, especially God/Source, reality, and consciousness. I’m playful, colourful, filled with hope and radically optimistic. I’m a miner, I find gems everywhere. I’m an alchemist/poet, a weaver of words and worlds. I proclaim that magic is real! In a synaesthetic sense, my true self is “purple and ecstatic”!</p>
+    <p class="bio-text reveal">I surrender to joy and light whenever possible, but I also find light in the darkness and possibilities for transmutation. The book cannot be divorced from my life, spirituality, and my inspirations: music, poetry, art, my synaesthesia and even cats. I hope that this book radiates infectious joy, love and beauty. I speak the language of the birds.</p>
+    <p class="quote measure center reveal" data-delay="120" style="margin-top:2.6rem;">“To name a thing is to call it forth from the dark. To write it is to make it stay.”</p>
+  </section>
+
+  <!-- LANGUAGE OF THE BIRDS — centerpiece -->
+  <section id="language" class="wrap center language">
+    <div class="head reveal">
+      <h2 class="section-title"><span class="ebook-pre">E-Book:</span> The Language of the Birds</h2>
+      <div class="divider"><span class="ornament">✦</span></div>
+    </div>
+    <div class="cover-wrap art-glow reveal"><div class="art-frame"><img src="images/language-of-the-birds-cover.jpeg" alt="The Language of the Birds — book cover by Katherine Brenner" /></div></div>
+    <p class="byline reveal">A forthcoming e-book by</p>
+    <p class="author reveal">Katherine Brenner</p>
+    <p class="measure center reveal" data-delay="100" style="margin-top:1.8rem;">The <em>Language of the Birds</em> is a mystical concept — a perfect, divine, and often secret language understood by the enlightened. It appears in myths, alchemical writings, and poetry as a symbol of higher wisdom and hidden truths, heard only by those prepared to receive them.</p>
+    <form class="notify reveal" data-delay="160" novalidate>
+      <input type="email" placeholder="Your email — to be notified when it releases" aria-label="Email address" />
+      <button class="btn" type="submit">Notify Me</button>
+    </form>
+  </section>
+
+  <!-- BOOK -->
+  <section id="book" class="wrap center">
+    <div class="head reveal">
+      <h2 class="section-title">About My Book</h2>
+      <div class="divider"><span class="ornament">✦</span></div>
+    </div>
+    <div class="book-art art-glow reveal"><div class="art-frame"><img src="images/book-art.jpg" alt="Phoenix rising between a raven and a dove over a cracked luminous egg" /></div></div>
+    <p class="lede measure center reveal" data-delay="100">My current book-in-progress is a fusion of spiritual allegory, lyrical prose, and symbolic storytelling. It draws upon ancient wisdom traditions, personal visions, and the language of the soul.</p>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog" class="wrap center">
+    <div class="head reveal">
+      <h2 class="section-title">Blog</h2>
+      <div class="divider"><span class="ornament">✦</span></div>
+    </div>
+    <div class="soon-card reveal">
+      <span class="chip"><span class="dot"></span>Coming Soon</span>
+      <p class="measure center" style="margin:1.4rem auto 0;">Thoughts, musings, and writings from the threshold — gathering now. The first reflections will appear here soon.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="wrap center">
+    <div class="head reveal">
+      <h2 class="section-title">Contact</h2>
+      <div class="divider"><span class="ornament">✦</span></div>
+    </div>
+    <div class="contact-list reveal" data-delay="100">
+      <a class="contact-row" href="mailto:rubyeyes22@hotmail.com">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <span>rubyeyes22@hotmail.com</span>
+      </a>
+      <a class="contact-row" href="https://instagram.com/theveillifting" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+        <span>@theveillifting</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <span class="mk">The Veil Lifting</span>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
